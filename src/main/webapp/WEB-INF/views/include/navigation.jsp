@@ -42,13 +42,13 @@
                     <label>나의 당근</label>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link has-ripple"><span class="pcoded-micon">
-                            <i class="feather icon-lock"></i></span>
+                    <a href="#!" class="nav-link "><span class="pcoded-micon">
+                        <i class="feather icon-lock"></i></span>
                         <span class="pcoded-mtext">프로필</span></a>
                     <ul class="pcoded-submenu">
-                        <li><a href="/user/profile">구매내역</a></li> <!-- 구매내역 상세페이지 만들기-->
-                        <li><a href="/user/profile">판매내역</a></li> <!-- 판매내역 상세페이지 만들기-->
-                        <li><a href="/user/profile">관심상품</a></li> <!-- 관심상품 상세페이지 만들기-->
+                        <li><a href="#!" target="_blank">구매내역</a></li>
+                        <li><a href="#!" target="_blank">판매내역</a></li>
+                        <li><a href="#!" target="_blank">관심상품</a></li>
                         <li><a href="/user/profile">프로필</a></li>
                     </ul>
                 </li>

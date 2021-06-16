@@ -5,7 +5,7 @@
 <html lang="ko">
 
 <head>
-    <title>JOONGGO MARKET</title>
+	<title>ORANGE MARKET</title>
     <style>
 
     </style>

@@ -31,7 +31,7 @@ CREATE TABLE users (
 CREATE SEQUENCE goods_seq; -- 상품 seq
 
 CREATE TABLE goods (
-    goods_no NUMBER(5)  -- 상품번호
+    goods_no NUMBER(5),  -- 상품번호
     sell_user_id VARCHAR2(20) NOT NULL, -- 판매자 아이디 FK
     sell_user_nickname VARCHAR2(20) NOT NULL, -- 판매자 닉네임 FK
     buy_user_id VARCHAR2(20), -- 구매자 아이디 FK

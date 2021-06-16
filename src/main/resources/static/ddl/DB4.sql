@@ -16,6 +16,7 @@ CREATE TABLE users (
 );
 
 ALTER TABLE users ADD CONSTRAINT uni_user_nickname UNIQUE (user_nickname); -- 회원 닉네임 unique key 설정
+ALTER TABLE users ADD CONSTRAINT uni_user_address UNIQUE (user_address); -- 회원 주소 unique key 설정
 
 
 -- 알람 테이블 push_alarm 삭제
@@ -38,7 +39,7 @@ ALTER TABLE users ADD CONSTRAINT uni_user_nickname UNIQUE (user_nickname); -- �
 CREATE SEQUENCE goods_seq; -- 상품 seq
 
 CREATE TABLE goods (
-    goods_no NUMBER(5)  -- 상품번호
+    goods_no NUMBER(5),  -- 상품번호
     sell_user_id VARCHAR2(20) NOT NULL, -- 판매자 아이디 FK
     sell_user_nickname VARCHAR2(20) NOT NULL, -- 판매자 닉네임 FK
     buy_user_id VARCHAR2(20), -- 구매자 아이디 FK
@@ -129,7 +130,6 @@ CREATE TABLE nboard (
     views NUMBER(5) DEFAULT 0, -- 게시글 조회 수
     post_date DATE DEFAULT SYSDATE, -- 게시글 작성일자
     category VARCHAR2(20) NOT NULL, -- 카테고리
-    CONSTRAINT pk_nboard PRIMARY KEY (board_no),
     CONSTRAINT pk_nboard PRIMARY KEY (board_no),
     CONSTRAINT fk_nboard_user_id FOREIGN KEY(user_id) REFERENCES users(user_id),
     CONSTRAINT fk_nboard_user_nickname FOREIGN KEY(user_nickname) REFERENCES users(user_nickname)

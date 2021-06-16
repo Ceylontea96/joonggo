@@ -7,7 +7,7 @@
 <html lang="ko">
 
 <head>
-    <title>JOONGGO MARKET</title>
+	<title>ORANGE MARKET</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -18,7 +18,6 @@
     <meta name="author" content="Phoenixcoded" />
 
     <%@ include file="../include/static-head.jsp" %>
-
 </head>
 
 <body class="loader-fill">
@@ -67,9 +66,9 @@
                                     <div class="user-details">
                                         <div id="more-details">${loginUser.userNickname}</div>
                                         <div id="profile-info">
-                                            <p id="region">봉명동</p><!-- 지역 확인 -->
+                                            <p id="region">${loginUser.userAddress}</p>
                                             <p id="userId"> #${loginUser.userId}</p>
-                                        </div>
+                                        </div><br>
                                         <a href="/user/profile-modify" type="button" class="btn  btn-primary">프로필
                                             수정하기</a>
                                         <hr>
