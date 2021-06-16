@@ -59,7 +59,7 @@
             , goods_price, sales_area, goods_status, goods_created_date
             , sell_user_id
         FROM
-            (SELECT /*+INDEX_DESC(goods pk_goods)*/
+            (SELECT  /*+INDEX_DESC(goods SYS_C007522)*/
                 ROWNUM rn, goods_no, sell_user_nickname, goods_title, goods_content, goods_category
                 , goods_price, sales_area, goods_status, goods_created_date
                 , sell_user_id

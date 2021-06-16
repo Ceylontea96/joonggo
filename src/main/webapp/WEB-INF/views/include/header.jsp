@@ -12,7 +12,7 @@
             <!-- <img src="/images/Orange.M-logo.png" alt="로고이미지" class="logo"> -->
             <div class="logo-h2"><p >Orange.M</p></div>
 
-            <img src="/images/logo-icon.png" alt="로고이미지" class="logo-thumb">
+            <!-- <img src="/images/logo-icon.png" alt="로고이미지" class="logo-thumb"> -->
         </a>
         <a href="#!" class="mob-toggler">
             <i class="feather icon-more-vertical"></i>

@@ -4742,6 +4742,7 @@ input[type="button"].btn-block {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
+    text-decoration: none;
 }
 
 .nav-link:hover,
@@ -4767,6 +4768,7 @@ input[type="button"].btn-block {
     border: 1px solid transparent;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+    color: #fd7214;
 }
 
 .nav-tabs .nav-link:hover,

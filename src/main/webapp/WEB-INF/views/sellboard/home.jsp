@@ -86,7 +86,7 @@
                             <!-- 동네생활 카테고리 -->
                             <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link text-uppercase all ${pageMaker.criteria.sellCategory == 'AL' || param.category == null ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                    <a class="nav-link text-uppercase all ${pageMaker.criteria.sellCategory == 'AL' || param.sellCategory == null ? 'active' : ''}" id="contact-tab" data-toggle="tab"
                                         href="#"
                                         role="tab" aria-controls="home" aria-selected="false">전체</a>
                                 </li>
