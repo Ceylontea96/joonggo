@@ -1,6 +1,9 @@
+
+-- UNIQUE KEY && FOREIGN KEY 설정
+
 -- 회원 테이블 users
 CREATE TABLE users (
-    user_id VARCHAR2(20) PRIMARY KEY, -- 아이디
+    user_id VARCHAR2(20), -- 아이디
     user_pw VARCHAR2(200) NOT NULL, -- 비밀번호
     user_email VARCHAR2(30) NOT NULL, -- 이메일
     user_nickname VARCHAR2(50) NOT NULL, -- 닉네임
@@ -8,8 +11,12 @@ CREATE TABLE users (
     user_auth VARCHAR2(20) DEFAULT 'USER', -- 권한
     user_created_date DATE DEFAULT SYSDATE, -- 생성일자
     user_session_id VARCHAR2(200) DEFAULT 'none', -- 세션 아이디
-    user_limit_time DATE -- 자동 로그인 기간
+    user_limit_time DATE, -- 자동 로그인 기간
+      CONSTRAINT pk_user_id PRIMARY KEY (user_id)
 );
+
+ALTER TABLE users ADD CONSTRAINT uni_user_nickname UNIQUE (user_nickname); -- 회원 닉네임 unique key 설정
+
 
 -- 알람 테이블 push_alarm 삭제
 --CREATE SEQUENCE push_alarm_seq; -- 알람 seq
@@ -44,7 +51,12 @@ CREATE TABLE goods (
     goods_price NUMBER(20) NOT NULL, -- 판매가격
     goods_view_cnt NUMBER(5), -- 조회 수
     goods_created_date DATE DEFAULT SYSDATE, -- 생성일자
-    CONSTRAINT pk_goods PRIMARY KEY (goods_no)
+    CONSTRAINT pk_goods PRIMARY KEY (goods_no),
+    CONSTRAINT fk_goods_area FOREIGN KEY(sales_area) REFERENCES users(user_address),
+    CONSTRAINT fk_goods_sell_id FOREIGN KEY(sell_user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_goods_sell_nickname FOREIGN KEY(sell_user_nickname) REFERENCES users(user_nickname),
+    CONSTRAINT fk_goods_buy_id FOREIGN KEY(buy_user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_goods_buy_nickname FOREIGN KEY(buy_user_nickname) REFERENCES users(user_nickname)
 );
 
 -- 관심상품 테이블 wishlist
@@ -57,6 +69,9 @@ CREATE TABLE goods (
 --    goods_no NUMBER(5) NOT NULL, -- 상품번호 FK
 --    goods_tile VARCHAR2(100) NOT NULL, -- 상품제목 FK
 --    wishlist_created_date DATE DEFAULT SYSDATE
+--    CONSTRAINT fk_wishlist_user_id FOREIGN KEY(user_id) REFERENCES users(user_id),
+--    CONSTRAINT fk_wishlist_user_nickname FOREIGN KEY(user_nickname) REFERENCES users(user_nickname),
+--    CONSTRAINT fk_wishlist_goods_no FOREIGN KEY(goods_no) REFERENCES goods(goods_no)
 --);
 
 -- 첨부파일 files
@@ -70,7 +85,10 @@ CREATE TABLE files (
     file_origin_name VARCHAR2(1000) NOT NULL, -- 파일 이름
     file_name VARCHAR2(1000) NOT NULL, -- 파일 이름
     file_created_date DATE DEFAULT SYSDATE,-- 생성일자
-    file_path VARCHAR2(1000) NOT NULL -- 파일경로
+    file_path VARCHAR2(1000) NOT NULL, -- 파일경로
+    CONSTRAINT fk_files_user_id FOREIGN KEY(user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_files_user_nickname FOREIGN KEY(user_nickname) REFERENCES users(user_nickname),
+    CONSTRAINT fk_files_goods_no FOREIGN KEY(goods_no) REFERENCES goods(goods_no)
 );
 
 -- 채팅방 chat_room
@@ -111,7 +129,10 @@ CREATE TABLE nboard (
     views NUMBER(5) DEFAULT 0, -- 게시글 조회 수
     post_date DATE DEFAULT SYSDATE, -- 게시글 작성일자
     category VARCHAR2(20) NOT NULL, -- 카테고리
-    CONSTRAINT pk_nboard PRIMARY KEY (board_no)
+    CONSTRAINT pk_nboard PRIMARY KEY (board_no),
+    CONSTRAINT pk_nboard PRIMARY KEY (board_no),
+    CONSTRAINT fk_nboard_user_id FOREIGN KEY(user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_nboard_user_nickname FOREIGN KEY(user_nickname) REFERENCES users(user_nickname)
 );
 
 
@@ -124,7 +145,10 @@ CREATE TABLE comments(
     comment_created_date DATE DEFAULT SYSDATE, -- 댓글 작성일자
     board_no NUMBER(5) NOT NULL, -- 게시글 번호 FK
     user_id VARCHAR2(20) NOT NULL, -- 아이디
-    user_nickname VARCHAR2(20) NOT NULL -- 닉네임
+    user_nickname VARCHAR2(20) NOT NULL, -- 닉네임
+    CONSTRAINT fk_comment_board_no FOREIGN KEY(board_no) REFERENCES nboard(board_no),
+    CONSTRAINT fk_comment_user_id FOREIGN KEY(user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_comment_user_nickname FOREIGN KEY(user_nickname) REFERENCES users(user_nickname)
 );
 
 
