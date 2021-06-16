@@ -1,8 +1,17 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <title>JOONGGO MARKET</title>
+    <style>
+        .pagination {
+            justify-content: center;
+            font-size: 15px;
+        }
+    </style>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -12,20 +21,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
 
-    <!-- Favicon icon -->
-    <link rel="icon" href="/src/main/resources/static/images/market_favicon.ico" type="image/x-icon">
-
-    <!-- vendor css -->
-    <link rel="stylesheet" href="/src/main/resources/static/css/style.css">
-
-    <!-- linear icon css -->
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-
-    <!-- Required Js -->
-    <script src="/src/main/resources/static/js/vendor-all.min.js" defer></script>
-    <script src="/src/main/resources/static/js/plugins/bootstrap.min.js" defer></script>
-    <script src="/src/main/resources/static/js/ripple.js" defer></script>
-    <script src="/src/main/resources/static/js/pcoded.min.js" defer></script>
+    <%@ include file="../include/static-head.jsp" %>
 
 </head>
 
@@ -40,215 +36,67 @@
 
 
     <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar menu-light">
-        <div class="navbar-wrapper">
-            <div class="navbar-content scroll-div">
-                <div class="">
-                    <div class="main-menu-header">
-                        <img class="img-radius" src="/src/main/resources/static/images/user/user_basic.png"
-                            alt="User-Profile-Image">
-                        <div class="user-details">
-                            <div id="more-details">둘리</div>
-                        </div>
-                    </div>
-                </div>
-                <ul class="nav pcoded-inner-navbar">
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>나의 당근</label>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link "><span class="pcoded-micon">
-                                <i class="feather icon-home"></i></span><span class="pcoded-mtext">홈</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>채팅</label>
-                    </li>
-                    <li class="nav-item">
-                        <a href="form_elements.html" class="nav-link "><span class="pcoded-micon">
-                            <i class="feather icon-message-circle"></i></span><span
-                                class="pcoded-mtext">채팅하기</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>동네생활</label>
-                    </li>
-                    <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon">
-                        <i class="feather icon-layout"></i></span><span class="pcoded-mtext">동네생활
-                                게시판</span></a></li>
-
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>마이페이지</label>
-                    </li>
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link has-ripple"><span class="pcoded-micon">
-                            <i class="feather icon-lock"></i></span>
-                            <span class="pcoded-mtext">프로필</span></a>
-                        <ul class="pcoded-submenu">
-                            <li><a href="#" target="_blank">구매내역</a></li> <!-- 구매내역 상세페이지 만들기-->
-                            <li><a href="#" target="_blank">판매내역</a></li> <!-- 판매내역 상세페이지 만들기-->
-                            <li><a href="#" target="_blank">관심상품</a></li> <!-- 관심상품 상세페이지 만들기-->
-                            <li><a href="#" target="_blank">프로필</a></li> <!-- 프로필 상세페이지 만들기 (정보수정)-->
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <%@ include file="../include/navigation.jsp" %>
     <!-- [ navigation menu ] end -->
 
 
     <!-- [ Header ] start -->
-    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
-        <div class="m-header">
-            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-            <a href="#!" class="b-brand">
-                <img src="/src/main/resources/static/images/logo.png" alt="로고이미지" class="logo">
-                <img src="/src/main/resources/static/images/logo-icon.png" alt="로고이미지" class="logo-thumb">
-            </a>
-            <a href="#!" class="mob-toggler">
-                <i class="feather icon-more-vertical"></i>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <!-- <a href="#!" class="pop-search"><i class="feather icon-search"></i></a> -->
-                    <div class="search-bar">
-                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i
-                                class="icon feather icon-bell"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right notification">
-                            <div class="noti-head">
-                                <h6 class="d-inline-block m-b-0">알림</h6>
-                                <div class="float-right">
-                                    <a href="#!" class="m-r-10">모두 읽음으로 표시</a>
-                                </div>
-                            </div>
-                            <ul class="noti-body">
-                                <li class="n-title">
-                                    <p class="m-b-0">새로운 알림</p>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="/src/main/resources/static/images/user/memoji1.png"
-                                            alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>John Doe</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>5분 전</span></p>
-                                            <p>새로운 글 등록</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="n-title">
-                                    <p class="m-b-0">최근 알림</p>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="/src/main/resources/static/images/user/memoji2.png"
-                                            alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>둘리</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>10분 전</span></p>
-                                            <p>새로운 채팅 1건</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="/src/main/resources/static/images/user/memoji1.png"
-                                            alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>고길동</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>12분 전</span></p>
-                                            <p>내 글 좋아요</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="notification">
-                                    <div class="media">
-                                        <img class="img-radius" src="/src/main/resources/static/images/user/memoji2.png"
-                                            alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <p><strong>하이</strong><span class="n-time text-muted"><i
-                                                        class="icon feather icon-clock m-r-10"></i>30분 전</span></p>
-                                            <p>새로운 채팅 1건</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="noti-footer">
-                                <a href="#!">더보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown drp-user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="feather icon-user"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right profile-notification">
-                            <div class="pro-head">
-                                <img src="/src/main/resources/static/images/user/user_basic.png" class="img-radius"
-                                    alt="User-Profile-Image">
-                                <span>John Doe</span>
-                                <a href="auth-signin.html" class="dud-logout" title="Logout">
-                                    <i class="feather icon-log-out"></i>
-                                </a>
-                            </div>
-                            <ul class="pro-body">
-                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i>
-                                        Profile</a></li>
-                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i>
-                                        My Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i>
-                                        Lock Screen</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-
-    </header>
-    <!-- [ Header ] end -->
+    <%@ include file="../include/header.jsp" %>
 
 
 
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-content">
-            <!-- [ breadcrumb ] start -->
-            <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title">
-                                <h2 class="m-b-10" id="home">JOONGGO MARKET</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- [ breadcrumb ] end -->
+            <!-- [ sitename ] start -->
+            <%@ include file="../include/sitename.jsp" %>
+            <!-- [ sitename ] end -->
 
 
-            <!-- [ Main Content ] start -->
-            <div class="row">
+             <!-- [ Main Content ] start -->
+             <div class="row">
                 <!-- project ,team member start -->
                 <div class="col-xl-6 col-md-12">
                     <div class="card table-card">
                         <div class="card-header">
                             <h5>최신글</h5>
+
+                            <div class="card-body">
+                                <!-- 동네생활 카테고리 -->
+                                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase all ${pageMaker.criteria.sellCategory == 'AL' || param.category == null ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="home" aria-selected="false">전체</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase clothing ${pageMaker.criteria.sellCategory == 'CLOTHING' ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="home" aria-selected="false">의류</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase electronic ${pageMaker.criteria.sellCategory == 'ELECTRONIC' ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="profile" aria-selected="false">전자기기</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase home ${pageMaker.criteria.sellCategory == 'HOME' ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="contact" aria-selected="false">가전가구</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase living ${pageMaker.criteria.sellCategory == 'LIVING' ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="contact" aria-selected="false">생활용품</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase remark ${pageMaker.criteria.sellCategory == 'REMARK' ? 'active' : ''}" id="contact-tab" data-toggle="tab"
+                                            href="#"
+                                            role="tab" aria-controls="contact" aria-selected="false">기타</a>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
                                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
@@ -278,6 +126,7 @@
                                     <thead>
                                         <tr>
                                             <th>NO</th>
+                                            <th>CATEGORY</th>
                                             <th>IMAGE</th>
                                             <th>TITLE</th>
                                             <th>PRICE</th>
@@ -285,181 +134,134 @@
                                             <th>DATE</th>
                                             <th>REGION</th>
                                             <th>LIKES</th>
-                                            <th>CHAT</th>
+                                            <!-- <th>CHAT</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="d-inline-block product">
-                                                    <img src="/src/main/resources/static/images/product/apple.jpg"
-                                                        alt="user image"
-                                                        class="img-radius wid-80 hei-70 align-top m-r-15">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h6>애플워치 판매합니다.</h6>
-                                                </div>
-                                            </td>
-                                            <td>100,000</td>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    도우너
-                                                </div>
-                                            </td>
-                                            <td>2021/06/10</td>
-                                            <td>봉명동</td>
-                                            <td>
-                                                <span class="lnr lnr-heart"> 1</span>
-                                            </td>
-                                            <td>
-                                                <span class="lnr lnr-bubble"> 2</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="d-inline-block product">
-                                                    <img src="/src/main/resources/static/images/product/notebook.jpg"
-                                                        alt="user image"
-                                                        class="img-radius wid-80 hei-70 align-top m-r-15">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h6>갤럭시 노트북 판매합니다.</h6>
-                                                </div>
-                                            </td>
-                                            <td>1650,000</td>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    고길동
-                                                </div>
-                                            </td>
-                                            <td>2021/06/09</td>
-                                            <td>도룡동</td>
-                                            <td>
-                                                <span class="lnr lnr-heart"> 1</span>
-                                            </td>
-                                            <td>
-                                                <span class="lnr lnr-bubble"> 2</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="d-inline-block product">
-                                                    <img src="/src/main/resources/static/images/product/nintendo.jpg"
-                                                        alt="user image"
-                                                        class="img-radius wid-80 hei-70 align-top m-r-15">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h6>닌텐도 판매합니다.</h6>
-                                                </div>
-                                            </td>
-                                            <td>500,000</td>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    노홍철
-                                                </div>
-                                            </td>
-                                            <td>2021/06/08</td>
-                                            <td>둔산동</td>
-                                            <td>
-                                                <span class="lnr lnr-heart"> 1</span>
-                                            </td>
-                                            <td>
-                                                <span class="lnr lnr-bubble"> 2</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="d-inline-block product">
-                                                    <img src="/src/main/resources/static/images/product/sofa.jpg"
-                                                        alt="user image"
-                                                        class="img-radius wid-80 hei-70 align-top m-r-15">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h6>소파 판매합니다.</h6>
-                                                </div>
-                                            </td>
-                                            <td>200,000</td>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    둘리
-                                                </div>
-                                            </td>
-                                            <td>2021/06/07</td>
-                                            <td>용문동</td>
-                                            <td>
-                                                <span class="lnr lnr-heart"> 3</span>
-                                            </td>
-                                            <td>
-                                                <span class="lnr lnr-bubble"> 1</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="d-inline-block product">
-                                                    <img src="/src/main/resources/static/images/product/samsung.jpg"
-                                                        alt="user image"
-                                                        class="img-radius wid-80 hei-70 align-top m-r-15">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <h6>갤럭시 판매합니다.</h6>
-                                                </div>
-                                            </td>
-                                            <td>800,000</td>
-                                            <td>
-                                                <div class="d-inline-block align-middle">
-                                                    하이
-                                                </div>
-                                            </td>
-                                            <td>2021/06/07</td>
-                                            <td>둔산동</td>
-                                            <td>
-                                                <span class="lnr lnr-heart"> 3</span>
-                                            </td>
-                                            <td>
-                                                <span class="lnr lnr-bubble"> 1</span>
-                                            </td>
-                                        </tr>
+
+                                        <c:forEach var="sellBoard" items="${sellList}">
+                                            <tr>
+                                                <!-- <script>console.log(sellBoard)</script> -->
+                                                <td>${sellBoard.productNum}</td>
+                                                <td>${sellBoard.sellCategory}</td>
+                                                <td><img src="/images/upload${sellBoard.mainImgPath}" width="100"
+                                                        height="100" alt="썸네일 이미지"></td>
+                                                <td>
+                                                    <a
+                                                        href="/content${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount)}&productNum=${sellBoard.productNum}">
+                                                        ${sellBoard.productName}</a>
+                                                    <c:if test="${sellBoard.newSellBoard}">
+                                                        <span class="badge badge-pill badge-success">New</span>
+                                                    </c:if>
+                                                </td>
+                                                <td>${sellBoard.sellPrice}</td>
+                                                <td>${sellBoard.sellerNick}</td>
+                                                <td>
+                                                    <fmt:formatDate value="${sellBoard.createDate}"
+                                                        pattern="yyyy년 MM월 dd일 HH:mm:ss" />
+                                                </td>
+                                                <td>${sellBoard.sellArea}</td>
+                                                <td>
+                                                    <a href="#"><span class="lnr lnr-heart"> 1</span></a>
+                                                </td>
+                                                <!-- <td>
+                                                    <span class="lnr lnr-bubble"> 2</span>
+                                                </td> -->
+                                            </tr>
+                                        </c:forEach>
+
                                     </tbody>
                                 </table>
+
+                                <!-- 페이지 영역 -->
+                                <ul class="pagination">
+
+                                    <c:if test="${pageMaker.prev}">
+
+                                        <li class="page-item">
+                                            <a class="page-link" href="/${pageMaker.makeParam(pageMaker.beginPage-1)}"
+                                                aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                    </c:if>
+
+                                    <!-- li*5>a{[$]} -->
+                                    <c:forEach var="i" begin="${pageMaker.beginPage}" end="${pageMaker.endPage}"
+                                        step="1">
+
+                                        <li class="page-item"><a class="page-link"
+                                                href="/${pageMaker.makeParam(i)}">${i}</a></li>
+                                        <!-- makeParam은 메서드이기 때문에 ()를 붙여서 call 해줌 -->
+                                    </c:forEach>
+
+                                    <c:if test="${pageMaker.next}">
+                                        <li class="page-item">
+                                            <a class="page-link" href="/${pageMaker.makeParam(pageMaker.endPage+1)}"
+                                                aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </c:if>
+                                </ul>
+                                <!-- 페이지 영역 종료 -->
+
+                                <div class="fixed-button active">
+                                    <a href="/sellboard-write" class="btn btn-md btn-primary">
+                                        <i class="fa fa-plus-circle" aria-hidden="true"></i> 글 작성</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- [ Main Content ] end -->
+
         </div>
     </div>
 
-    <!-- Required Js -->
-    <script src="assets/js/vendor-all.min.js"></script>
-    <script src="assets/js/plugins/bootstrap.min.js"></script>
-    <script src="assets/js/ripple.js"></script>
-    <script src="assets/js/pcoded.min.js"></script>
-
-    <!-- Apex Chart -->
-    <!-- <script src="assets/js/plugins/apexcharts.min.js"></script> -->
-
-
-    <!-- custom-chart js -->
-    <!-- <script src="assets/js/pages/dashboard-main.js"></script> -->
-
-
+    <script>
+        $(function () {
+            console.log("home script 시작");
+            $('.clothing').on('click', e => {
+                console.log("clothing 클릭이벤트!");
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'CLOTHING')}";
+            })
+            $('.electronic').on('click', e => {
+                console.log("electronic 클릭이벤트!");
+                console.log(e.target);
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'ELECTRONIC')}";
+            });
+            $('.home').on('click', e => {
+                console.log("home 클릭이벤트!");
+                console.log(e.target);
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'HOME')}";
+            });
+            $('.living').on('click', e => {
+                console.log("living 클릭이벤트!");
+                console.log(e.target);
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'LIVING')}";
+            });
+            $('.remark').on('click', e => {
+                console.log("remark 클릭이벤트!");
+                console.log(e.target);
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'REMARK')}";
+            });
+            $('.all').on('click', e => {
+                console.log("all 클릭이벤트!");
+                console.log(e.target);
+                location.href =
+                    "/${pageMaker.makeParam(pageMaker.criteria.page, pageMaker.criteria.amount, 'AL')}";
+            });
+        });
+    </script>
 </body>
 
 </html>
